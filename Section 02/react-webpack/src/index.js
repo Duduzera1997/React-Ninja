@@ -1,0 +1,1 @@
+console.log('WebPack está funcionando! \\o/')
