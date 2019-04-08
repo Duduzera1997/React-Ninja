@@ -4,28 +4,35 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      value: '2',
+      checked: false,
+      showContent: false,
     };
   }
 
   render() {
-    // const { value } = this.state;
+    const { checked, showContent } = this.state;
     return (
       <div>
-        <form
-          onSubmit={e => {
-            e.preventDefault();
-            console.log('event', e);
-          }}
-          onChange={e => {
-            console.log('name', e.target.name);
-            console.log('value', e.target.value);
-          }}
-        >
-          <input type="name" name="name" />
-          <input type="email" name="email" />
-          <button type="submit">Enviar</button>
-        </form>
+        <label>
+          <input
+            type="checkbox"
+            checked={checked}
+            onChange={() => {
+              this.setState(
+                {
+                  checked: !checked,
+                },
+                () => {
+                  this.setState({
+                    showContent: checked,
+                  });
+                }
+              );
+            }}
+          />{' '}
+          Mostrar conteúdo
+        </label>
+        {showContent && <div> Olha eu Aqui!</div>}
       </div>
     );
   }
