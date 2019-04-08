@@ -4,24 +4,6 @@ import Square from './square'
 import Timer from './timer'
 
 class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            time:0,
-            showTimer: true
-        }
-        console.log('Constructor')
-    }
-
-    componentWillMount() {
-        console.log('componentWillMount')
-    }
-
-    componentDidMount() {
-        console.log('componentDidMount')
-    }
-
-
 
     render() {
         console.log('render')
