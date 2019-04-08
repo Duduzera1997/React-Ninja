@@ -12,8 +12,19 @@ class App extends Component {
     // const { value } = this.state;
     return (
       <div>
-        <form>
-          <textarea defaultValue={'default \nvalue'} />
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+            console.log('event', e);
+          }}
+          onChange={e => {
+            console.log('name', e.target.name);
+            console.log('value', e.target.value);
+          }}
+        >
+          <input type="name" name="name" />
+          <input type="email" name="email" />
+          <button type="submit">Enviar</button>
         </form>
       </div>
     );
