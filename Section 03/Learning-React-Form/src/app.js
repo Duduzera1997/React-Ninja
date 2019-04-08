@@ -18,16 +18,10 @@ class App extends Component {
             type="checkbox"
             checked={checked}
             onChange={() => {
-              this.setState(
-                {
-                  checked: !checked,
-                },
-                () => {
-                  this.setState({
-                    showContent: checked,
-                  });
-                }
-              );
+              this.setState({
+                checked: !checked,
+                showContent: checked,
+              });
             }}
           />{' '}
           Mostrar conteúdo
