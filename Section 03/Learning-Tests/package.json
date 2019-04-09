@@ -11,7 +11,8 @@
     "react-hot-loader": "^3.0.0-beta.2",
     "webpack": "^1.15.0",
     "webpack-dev-server": "^1.16.5",
-    "webpack-validator": "^3.0.1"
+    "webpack-validator": "^3.0.1",
+    "whacko": "^0.19.1"
   },
   "dependencies": {
     "react": "^15.6.2",
