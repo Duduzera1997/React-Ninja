@@ -10,48 +10,64 @@ class App extends Component {
       userInfo: null,
       repos: [],
       starred: [],
+      isFetching: false,
     };
   }
 
   getRepositories(type) {
+    const { userInfo } = this.state;
     return () => {
-      axios
-        .get(`http://api.github.com/users/Duduzera1997/${type}`)
-        .then(res => {
-          this.setState({
-            [type]: res.data.map(repo => ({
-              name: repo.name,
-              link: repo.html_url,
-            })),
-          });
+      axios.get(this.getGitHubApiUrl(userInfo.login, type)).then(res => {
+        this.setState({
+          [type]: res.data.map(repo => ({
+            name: repo.name,
+            link: repo.html_url,
+          })),
         });
+      });
     };
+  }
+
+  getGitHubApiUrl(username, type) {
+    const internalUser = username ? `/${username}` : '';
+    const internalType = type ? `/${type}` : '';
+    return `https://api.github.com/users${internalUser}${internalType}`;
   }
 
   handleSearch(e) {
     const { value } = e.target;
-    const api = 'https://api.github.com/users/';
     const keyCode = e.wich || e.keyCode;
     const enter = 13;
     if (keyCode === enter) {
-      axios.get(`${api}${value}`).then(res => {
-        this.setState({
-          userInfo: {
-            userName: res.data.name,
-            repositories: res.data.public_repos,
-            photo: res.data.avatar_url,
-            login: res.data.login,
-            repos: res.data.public_repos,
-            followers: res.data.followers,
-            following: res.data.following,
-          },
+      this.setState({ isFetching: true });
+      axios
+        .get(this.getGitHubApiUrl(value))
+        .then(res => {
+          this.setState({
+            userInfo: {
+              userName: res.data.name,
+              repositories: res.data.public_repos,
+              photo: res.data.avatar_url,
+              login: res.data.login,
+              repos: res.data.public_repos,
+              followers: res.data.followers,
+              following: res.data.following,
+            },
+            repos: [],
+            starred: [],
+          });
+        })
+        .catch(() => {
+          alert('Erro ao Consultar o Usuário!');
+        })
+        .then(() => {
+          this.setState({ isFetching: false });
         });
-      });
     }
   }
 
   render() {
-    const { userInfo, repos, starred } = this.state;
+    const { userInfo, repos, starred, isFetching } = this.state;
     return (
       <AppContent
         userInfo={userInfo}
@@ -60,6 +76,7 @@ class App extends Component {
         handleSearch={e => this.handleSearch(e)}
         getRepositories={this.getRepositories('repos')}
         getStarred={this.getRepositories('starred')}
+        isFetching={isFetching}
       />
     );
   }

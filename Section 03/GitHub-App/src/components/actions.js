@@ -9,8 +9,8 @@ const Actions = ({ getRepositories, getStarred }) => (
 );
 
 Actions.propTypes = {
-  getRepositories: PropTypes.func,
-  getStarred: PropTypes.func,
+  getRepositories: PropTypes.func.isRequired,
+  getStarred: PropTypes.func.isRequired,
 };
 
 export default Actions;
