@@ -12,6 +12,9 @@ class App extends Component {
       starred: [],
       isFetching: false,
     };
+
+    // bindings;
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   getRepositories(type) {
@@ -67,16 +70,12 @@ class App extends Component {
   }
 
   render() {
-    const { userInfo, repos, starred, isFetching } = this.state;
     return (
       <AppContent
-        userInfo={userInfo}
-        repos={repos}
-        starred={starred}
-        handleSearch={e => this.handleSearch(e)}
+        {...this.state} // Spread operator;
+        handleSearch={this.handleSearch}
         getRepositories={this.getRepositories('repos')}
         getStarred={this.getRepositories('starred')}
-        isFetching={isFetching}
       />
     );
   }
