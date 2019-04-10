@@ -1,5 +1,8 @@
-describe('# ESCOPO', () => {
-	it('1 é igual a 1.', () => {
-		expect(1).toBe(2);
+import {expect} from 'chai';
+import Sum from './sum'
+
+describe('--ESCOPO SUM.JS--', () => {
+	it('Sum should be a Function', () => {
+		expect(Sum).to.be.a('function');
 	});
 });
