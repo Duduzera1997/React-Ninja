@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1554913788036" clover="3.2.0">
-  <project timestamp="1554913788036" name="All files">
-    <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0" elements="2" coveredelements="1" complexity="0" loc="1" ncloc="1" packages="1" files="1" classes="1"/>
-    <file name="filter.js" path="/Users/pedropaulo/Documents/Courses/Projects/React-Ninja/Section 04/Jest-In-Practice/src/filter/filter.js">
-      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+<coverage generated="1554922029283" clover="3.2.0">
+  <project timestamp="1554922029283" name="All files">
+    <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2" elements="10" coveredelements="10" complexity="0" loc="4" ncloc="4" packages="1" files="1" classes="1"/>
+    <file name="some-recursive.js" path="/Users/pedropaulo/Documents/Courses/Projects/React-Ninja/Section 04/Jest-In-Practice/src/some/some-recursive.js">
+      <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
       <line num="1" count="1" type="stmt"/>
+      <line num="2" count="5" type="stmt"/>
+      <line num="3" count="8" type="stmt"/>
+      <line num="5" count="8" type="cond" truecount="2" falsecount="0"/>
     </file>
   </project>
 </coverage>
