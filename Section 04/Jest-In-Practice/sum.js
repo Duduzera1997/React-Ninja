@@ -1,7 +1,5 @@
 const Sum = () => {
-    if(1==2) {
-        return;
-    }
+    return 3;
 }
 
 export default Sum;
