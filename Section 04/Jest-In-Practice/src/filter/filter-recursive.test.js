@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import Filter from './filter';
+import Filter from './filter-recursive';
 
 describe('---Filter Tests---', () => {
 	test('Filter should be a Function.', () => {
