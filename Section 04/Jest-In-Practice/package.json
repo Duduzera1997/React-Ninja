@@ -1,7 +1,7 @@
 {
   "scripts": {
     "test": "jest --coverage",
-    "test:watch":"npm test -- --watchAll"
+    "test:watch": "npm test -- --watchAll"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.4.3",
